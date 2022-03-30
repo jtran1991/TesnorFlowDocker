@@ -1,0 +1,23 @@
+# unser Base-Image
+FROM python:3.8.6
+# RUN python3 install pip
+
+
+RUN useradd -s /bin/bash -m vscode \
+ && groupadd docker \
+ && usermod -aG docker vscode
+USER root
+RUN apt-get -y update
+RUN apt-get -y upgrade
+RUN pip install -y --upgrade pip && pip install -y pipenv
+
+USER vscode
+
+WORKDIR /code
+# RUN pipenv install
+
+# RUN cd dockertest
+# RUN pipenv install
+
+
+# CMD [ "python", "./your-daemon-or-script.py" ]

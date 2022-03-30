@@ -1,0 +1,22 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+tensorflow = "*"
+
+
+
+[dev-packages]
+
+
+
+[requires]
+python_version = "*"
+
+[pipenv]
+allow_prereleases = true
+# necessary hack because TF doesn't resolve Kersa's subdependencies correctly at the moment
+# See https://stackoverflow.com/questions/67806604/pipenv-pipfile-lock-is-not-being-generated-due-to-the-could-not-find-a-versio
+# to remove when TF does the resolution better.
